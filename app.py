@@ -46,8 +46,8 @@ def create_entry():
 		entry.create_entry(request.form["message"])
 		session.add(entry)
 		session.commit()
-		return redirect(url_for("/"))
-
+		return home()
+		
 @app.route("/success")
 def success():
 	return render_template("success.html")
