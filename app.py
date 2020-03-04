@@ -35,14 +35,15 @@ def get_entries():
 @app.route("/create_entry_form")
 @cross_origin()
 def create_entry_form():
-	return render_template("create_entry_form.html")
+	return render_template("form.html")
 
 @app.route("/create_entry", methods=["GET", "POST"])
 @cross_origin()
 def create_entry():
-	if request.method=="POST" and (request.args.get("message") is not None):
+	print(request.form)
+	if request.method=="POST" and (request.form["message"] is not None):
 		entry = Entry()
-		entry.create_entry(request.args.get("message"))
+		entry.create_entry(request.form["message"])
 		session.add(entry)
 		session.commit()
 		return redirect(url_for("/"))
