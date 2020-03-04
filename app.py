@@ -1,8 +1,10 @@
 from flask import Flask, request, render_template, redirect, url_for
+from flask_cors import CORS, cross_origin
 from db.models import Entry
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import json
+import os
 
 # Postgres
 engine = create_engine(os.environ["DATABASE_URL"], echo = 'debug')
@@ -13,12 +15,16 @@ session = Session()
 
 # Flask
 app = Flask(__name__)
+cors = CORS(app)
+app.config["CORS_HEADERS"] = "Content-Type"
 
 @app.route("/")
+@cross_origin()
 def home():
 	return render_template("home.html")
 
 @app.route("/get_entries", methods=["GET"])
+@cross_origin()
 def get_entries():
 	return_dict = dict()
 	return_dict["data"] = list()
@@ -27,10 +33,12 @@ def get_entries():
 	return json.dumps(return_dict)
 
 @app.route("/create_entry_form")
+@cross_origin()
 def create_entry_form():
 	return render_template("create_entry_form.html")
 
 @app.route("/create_entry", methods=["GET", "POST"])
+@cross_origin()
 def create_entry():
 	if request.method=="POST" and (request.args.get("message") is not None):
 		entry = Entry()

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Life is Green</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script type="text/javascript">
+		$.get( "/get_entries", { name: "John", time: "2pm" } )
+		  .done(function( data ) {
+		    alert( "Data Loaded: " + data );
+		  });
+	</script>
+</head>
+<body>
+
+</body>
+</html>
