@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, jsonify
 from flask_cors import CORS, cross_origin
 from db.models import Entry
 from sqlalchemy import create_engine
@@ -30,7 +30,7 @@ def get_entries():
 	return_dict["data"] = list()
 	for entry in session.query(Entry):
 		return_dict["data"].append(entry.message)
-	return json.dumps(return_dict)
+	return jsonify(return_dict)
 
 @app.route("/create_entry_form")
 @cross_origin()
