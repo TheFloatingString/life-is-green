@@ -44,12 +44,12 @@
 
 	<div id="expand-message">
 		<p style="text-align: center">Welcome to <b style="color:green">Life is Green</b>, a website to share strategies on improving sustainability</p>
+		<center><a class="button" href="/create_entry_form" style="margin: 20px;">Add an idea</a></center>
 	</div>
 
-	<div class="container">
-		<div id="card-display">
-		</div>
+	<div class="container" id="card-display">
 	</div>
+
 
 	<script type="text/javascript">
 
@@ -64,11 +64,11 @@ window.onload = function() {
 		    console.log(data["data"])
 		    console.log(data["data"][0])
 		    for (var x of data["data"]) {
-		    htmlContent += 		`<div class="card">
+		    htmlContent += 		`		<div class="card">
 			<div class="card-content">
-				<p class="title">
+				<div class="content">
 					`+x+`
-				</p>
+				</div>
 			</div>
 		</div>`;
 		    }
