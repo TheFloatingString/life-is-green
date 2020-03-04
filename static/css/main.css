@@ -1,0 +1,17 @@
+.container{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+	grid-gap: 0.5em;
+}
+
+.navbar{
+	height: 75px;
+}
+
+.spacer{
+	height: 95px;
+}
+
+.card{
+	height: max-content;
+}
