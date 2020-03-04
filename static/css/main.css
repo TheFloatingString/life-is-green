@@ -4,6 +4,12 @@
 	grid-gap: 0.5em;
 }
 
+#expand-message{
+	margin-top: 90px;
+	width: 100%;
+	margin-bottom: 90px
+}
+
 .navbar{
 	height: 75px;
 }
